@@ -2,18 +2,18 @@ name: Sync with Hugging Face Hub
 
 on:
   push:
-    branches:
-      - master # Or your desired branch
+    branches: [ master ]
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Sync with Hugging Face
-        uses: nateraw/huggingface-sync-action@v0.0.4 # Use the latest version
+        uses: nateraw/huggingface-sync-action@v0.0.5
         with:
           github_repo_id: SathvikDixit/Segmentation-of-Teeth-in-Panoramic-X-ray-Image-Using-U-Net
-          huggingface_repo_id: DemonsSlayer/DentalSegmentation # Or model/dataset name
-          repo_type: space # Or 'model', 'dataset'
-          space_sdk: gradio # Or 'streamlit', 'docker', etc. if using Spaces
-          hf_token: ${{ secrets.HF_TOKEN }} 
+          huggingface_repo_id: DemonsSlayer/DentalSegmentation
+          repo_type: space
+          space_sdk: gradio
+          hf_token: ${{ secrets.HF_TOKEN }}
